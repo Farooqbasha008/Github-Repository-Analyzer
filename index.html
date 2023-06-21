@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">GitHub Repository Analyzer</h1>
+    <div class="input-field">
+      <label for="github-url">Enter the GitHub user's URL:</label>
+      <input id="github-url" type="text">
+    </div>
+    <div class="input-field">
+      <label for="openai-api-key">Enter your OpenAI API key:</label>
+      <input id="openai-api-key" type="text">
+    </div>
+    <button class="button" onclick="analyzeUser()">Analyze</button>
+    <div class="results">
+      <h2>Repository Complexity Scores:</h2>
+      <ul id="complexity-scores"></ul>
+      <h2>Most Complex Repository:</h2>
+      <p id="most-complex-repo"></p>
+      <h2>Justification by the GPT:</h2>
+      <p id="justification"></p>
+      <h2>Most Complex Repository URL:</h2>
+      <p id="repo-url"></p>
+    </div>
+  </div>
+
+  <script>
+    function analyzeUser() {{
+      var githubUrl = document.getElementById('github-url').value;
+      var openaiApiKey = document.getElementById('openai-api-key').value;
+      fetch(`/analyze?github_url=${{encodeURIComponent(githubUrl)}}`)
+        .then(response => response.json())
+        .then(data => displayResults(data));
+    }}
+
+    function displayResults(data) {{
+      var scoresList = document.getElementById('complexity-scores');
+      scoresList.innerHTML = '';
+      data.repository_scores.forEach(score => {{
+        var listItem = document.createElement('li');
+        listItem.innerText = `Repository: ${{score.repository}}, Complexity Score: ${{score.score}}`;
+        scoresList.appendChild(listItem);
+      }});
+
+      var mostComplexRepo = document.getElementById('most-complex-repo');
+      mostComplexRepo.innerText = `Repository: ${{data.most_complex_repository.repository}}, Complexity Score: ${{data.most_complex_repository.score}}`;
+
+      var justification = document.getElementById('justification');
+      justification.innerText = data.justification;
+
+      var repoUrl = document.getElementById('repo-url');
+      repoUrl.innerHTML = `<a href="${{data.most_complex_repository_url}}" target="_blank">${{data.most_complex_repository_url}}</a>`;
+    }}
+  </script>
+</body>
+</html>
