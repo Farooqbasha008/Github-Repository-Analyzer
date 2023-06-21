@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Github Repository Analyzer - Result</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Repository Complexity Scores:</h1>
+    <ul>
+        {% for repo, score in repositories %}
+            <li>Repository: {{ repo }}, Complexity Score: {{ score }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Most Complex Repository:</h1>
+    <p>Repository: {{ most_complex_repo[0] }}, Complexity Score: {{ most_complex_repo[1] }}</p>
+
+    <h1>Justification by the GPT:</h1>
+    <p>{{ justification }}</p>
+
+    <h1>Most Complex Repository Link:</h1>
+    <p><a href="{{ most_complex_repo_url }}">Click here to go to the Most Complex Repository</a></p>
+</body>
+</html>
