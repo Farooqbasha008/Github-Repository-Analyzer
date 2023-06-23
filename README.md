@@ -27,7 +27,7 @@ As of now, you can use this in Google Colab or in your local system.
 4. Make a new folder and keep app.py , templates folder and static folder inside it.
 5. Open cmd terminal.
 6. Run the following command:
-    pip insatll flask
+    pip install flask
 7. After installation is done, Enter the following command:
     cd "path to the folder"
 8. Then Run the tool by enetring
