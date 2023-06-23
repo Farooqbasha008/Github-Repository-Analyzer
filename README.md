@@ -13,12 +13,31 @@ The GitHub Repository Analyzer is an automated repository analyzer tool that all
 
 ## How to Use
 
-1. Visit the website of the GitHub Repository Analyzer tool. 
-2. Enter the GitHub user URL of the user whose repositories you want to analyze.
-3. Click the "Analyze" button to initiate the analysis process.
-4. The tool will fetch the repositories, preprocess the code, and evaluate the complexity.
-5. Once the analysis is complete, the tool will display the repository complexity scores, the most complex repository, and the GPT analysis justification.
-6. Access the most complex repository by clicking on the provided link.
+As of now, you can use this in Google Colab or in your local system.
+
+# Google Colab
+1. Open the Github_Automated_Analysis.ipynb in Google Colab.
+2. Run the cells in the notebook .
+3. Input the particulars and the results will be displayed.
+
+# Local System
+1. Download the app.py, index.html, result.html, styles.css files.
+2. Make a folder named templates and keep index.html and result.html in it.
+3. Make a folder named static and keep styles.css file in it.
+4. Make a new folder and keep app.py , templates folder and static folder inside it.
+5. Open cmd terminal.
+6. Run the following command:
+    pip insatll flask
+7. After installation is done, Enter the following command:
+    cd "path to the folder"
+8. Then Run the tool by enetring
+     flask run
+9. The terminal will show the website url.
+10. Copy the url and paste it in a browser and acces the tool.
+
+# Note 
+
+This is a very basic tool and still under development. Feel free to contribute.
 
 ## Deployment
 
