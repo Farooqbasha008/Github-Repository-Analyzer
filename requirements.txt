@@ -1,6 +1,6 @@
 streamlit
 requests
 Pygments
-github
+Pygithub
 nbformat
 openai
