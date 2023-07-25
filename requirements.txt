@@ -4,3 +4,4 @@ Pygments
 Pygithub
 nbformat
 openai
+IPython
